@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://j50xkqnovqmx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_svavw"]
+radius = 43.0116
+
+[node name="beatblock" type="Node2D"]
+position = Vector2(292, 652)
+
+[node name="sprite" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+rotation = -0.785398
+pivot_offset = Vector2(20, 20)
+color = Color(0.700875, 0.6675, 0.89, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_svavw")
