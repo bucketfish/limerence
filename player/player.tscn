@@ -25,6 +25,24 @@ tracks/0/keys = {
 "values": [8]
 }
 
+[sub_resource type="Animation" id="Animation_mnwkj"]
+resource_name = "fall"
+length = 0.3
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [18, 19]
+}
+
 [sub_resource type="Animation" id="Animation_7xb0u"]
 resource_name = "idle"
 length = 0.3
@@ -43,9 +61,9 @@ tracks/0/keys = {
 "values": [8, 9]
 }
 
-[sub_resource type="Animation" id="Animation_jo68q"]
-resource_name = "walk"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_orb8f"]
+resource_name = "jump"
+length = 0.6
 step = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -54,10 +72,27 @@ tracks/0/path = NodePath("../Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
+"values": [14, 15, 16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_ad8sa"]
+resource_name = "land"
+length = 0.15
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
 }
 
 [sub_resource type="Animation" id="Animation_vkqw8"]
@@ -78,26 +113,8 @@ tracks/0/keys = {
 "values": [10, 11, 12, 13]
 }
 
-[sub_resource type="Animation" id="Animation_orb8f"]
-resource_name = "jump"
-length = 0.6
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [14, 15, 16, 17]
-}
-
-[sub_resource type="Animation" id="Animation_mnwkj"]
-resource_name = "fall"
-length = 0.3
+[sub_resource type="Animation" id="Animation_jo68q"]
+resource_name = "walk"
 loop_mode = 1
 step = 0.15
 tracks/0/type = "value"
@@ -107,27 +124,10 @@ tracks/0/path = NodePath("../Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [18, 19]
-}
-
-[sub_resource type="Animation" id="Animation_ad8sa"]
-resource_name = "land"
-length = 0.15
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [20]
+"values": [0, 1, 2, 3, 4, 5, 6]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tugoj"]
@@ -214,7 +214,7 @@ states/run/position = Vector2(132.405, 240.143)
 states/walk/node = SubResource("AnimationNodeAnimation_2v5ej")
 states/walk/position = Vector2(514.405, 124.643)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_3wsqn"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ysaqt"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_5jkub"), "fall", "land", SubResource("AnimationNodeStateMachineTransition_trsyy"), "land", "idle", SubResource("AnimationNodeStateMachineTransition_5rupu"), "run", "fall", SubResource("AnimationNodeStateMachineTransition_ymfpw"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_frcvd"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_7yixc"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_e2xux"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_n26im"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_q1arh"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_v6glg"), "walk", "fall", SubResource("AnimationNodeStateMachineTransition_vubyp"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_7gk17"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_1q4b8"), "land", "jump", SubResource("AnimationNodeStateMachineTransition_vjyl1"), "land", "fall", SubResource("AnimationNodeStateMachineTransition_k1fs4"), "land", "run", SubResource("AnimationNodeStateMachineTransition_ngly4")]
-graph_offset = Vector2(-12.6825, -38.6775)
+graph_offset = Vector2(-202.92, -27.045)
 
 [node name="player" type="CharacterBody2D" groups=["drop_area", "npc"]]
 script = ExtResource("1_cuuvr")
@@ -224,6 +224,7 @@ position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_oposh")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_dpgi6")
 hframes = 5

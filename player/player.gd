@@ -13,11 +13,14 @@ const GRAVITY = 1900
 
 const PINJOINT_XOFFSET = 20
 
+const COYOTE_TIME = 0.1
+
 
 var vertical_force = JUMP_HEIGHT
 
 var state = "idle"
 var is_in_jump = false
+var time_since_floor = 100
 
 
 @onready var anim = $AnimationTree.get("parameters/playback")
@@ -48,6 +51,9 @@ func _physics_process_beatblocks(delta):
 	
 	
 func _physics_process_movement(delta):
+	time_since_floor += delta 
+	
+		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		pass 
 		
@@ -62,10 +68,19 @@ func _physics_process_movement(delta):
 	if is_on_floor():
 		state = "idle"
 		vertical_force = JUMP_HEIGHT
+		time_since_floor = 0
 		
-	if velocity.y > 0:
+	if Input.is_action_just_pressed("jump") and time_since_floor < COYOTE_TIME:
+		vertical_force = JUMP_HEIGHT
+		state = "jump"
+		velocity.y = -vertical_force
+		
+		time_since_floor = 1000
+		
+	elif velocity.y > 0:
 		state = "fall"
 		vertical_force = 0
+	
 		
 	var direction = Input.get_axis("left", "right")
 	
