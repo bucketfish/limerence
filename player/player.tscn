@@ -1,11 +1,12 @@
-[gd_scene load_steps=41 format=3 uid="uid://by8bwxlppuhrm"]
+[gd_scene load_steps=47 format=3 uid="uid://by8bwxlppuhrm"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_cuuvr"]
 [ext_resource type="Texture2D" uid="uid://cyi4lcaxrxpvw" path="res://player/player.png" id="2_dpgi6"]
-[ext_resource type="Texture2D" uid="uid://qp114s5cfih4" path="res://placeholder beatblock assets/magic_03.png" id="3_1bw01"]
-[ext_resource type="Texture2D" uid="uid://bjbxmkjwf4vsp" path="res://placeholder beatblock assets/window_04.png" id="3_d7m4b"]
-[ext_resource type="Texture2D" uid="uid://c261iaugr4qo1" path="res://placeholder beatblock assets/circle_03.png" id="5_muhbn"]
-[ext_resource type="Texture2D" uid="uid://bj45kmyv3x0f5" path="res://placeholder beatblock assets/circle_05.png" id="6_jp3bv"]
+[ext_resource type="PackedScene" uid="uid://4l8xh0qsfnyd" path="res://beatblock/beatblock_displays/2.tscn" id="3_evm3q"]
+[ext_resource type="PackedScene" uid="uid://gma35jhpjhax" path="res://beatblock/beatblock_displays/4.tscn" id="4_hsje8"]
+[ext_resource type="PackedScene" uid="uid://cpt47dpfhrf2t" path="res://beatblock/beatblock_displays/3.tscn" id="5_g4h3y"]
+[ext_resource type="PackedScene" uid="uid://bm5ml1njdroq0" path="res://beatblock/beatblock_displays/1.tscn" id="6_32l1d"]
+[ext_resource type="Script" path="res://camera.gd" id="7_5nvnm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oposh"]
 size = Vector2(56, 201)
@@ -216,7 +217,102 @@ states/walk/position = Vector2(514.405, 124.643)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_3wsqn"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ysaqt"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_5jkub"), "fall", "land", SubResource("AnimationNodeStateMachineTransition_trsyy"), "land", "idle", SubResource("AnimationNodeStateMachineTransition_5rupu"), "run", "fall", SubResource("AnimationNodeStateMachineTransition_ymfpw"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_frcvd"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_7yixc"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_e2xux"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_n26im"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_q1arh"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_v6glg"), "walk", "fall", SubResource("AnimationNodeStateMachineTransition_vubyp"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_7gk17"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_1q4b8"), "land", "jump", SubResource("AnimationNodeStateMachineTransition_vjyl1"), "land", "fall", SubResource("AnimationNodeStateMachineTransition_k1fs4"), "land", "run", SubResource("AnimationNodeStateMachineTransition_ngly4")]
 graph_offset = Vector2(-202.92, -27.045)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnwya"]
+radius = 183.003
+
+[sub_resource type="Animation" id="Animation_1gw2l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -50)]
+}
+
+[sub_resource type="Animation" id="Animation_is3j7"]
+resource_name = "bb_facingleft"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -50), Vector2(150, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8hn7q"]
+resource_name = "bb_facingright"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -50), Vector2(-150, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0dypa"]
+_data = {
+"RESET": SubResource("Animation_1gw2l"),
+"bb_facingleft": SubResource("Animation_is3j7"),
+"bb_facingright": SubResource("Animation_8hn7q")
+}
+
 [node name="player" type="CharacterBody2D" groups=["drop_area", "npc"]]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_cuuvr")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
@@ -242,26 +338,42 @@ root_node = NodePath(".")
 tree_root = SubResource("AnimationNodeStateMachine_qp54s")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="sprite" type="Sprite2D" parent="."]
-modulate = Color(0.77926, 0.7708, 0.94, 1)
-position = Vector2(-88, 0)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("3_1bw01")
+[node name="sprite" parent="." instance=ExtResource("3_evm3q")]
+position = Vector2(432, -1)
+scale = Vector2(1.5, 1.5)
 
-[node name="sprite2" type="Sprite2D" parent="."]
-modulate = Color(0.7708, 0.90052, 0.94, 1)
-position = Vector2(-176, 0)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("3_d7m4b")
+[node name="sprite2" parent="." instance=ExtResource("4_hsje8")]
+position = Vector2(336, 0)
+scale = Vector2(1.5, 1.5)
 
-[node name="sprite3" type="Sprite2D" parent="."]
-modulate = Color(0.94, 0.93718, 0.7708, 1)
-position = Vector2(-272, 0)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("5_muhbn")
+[node name="sprite3" parent="." instance=ExtResource("5_g4h3y")]
+position = Vector2(234, 0)
+scale = Vector2(1.5, 1.5)
 
-[node name="sprite4" type="Sprite2D" parent="."]
-modulate = Color(0.7708, 0.94, 0.80746, 1)
-position = Vector2(-368, 0)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("6_jp3bv")
+[node name="sprite4" parent="." instance=ExtResource("6_32l1d")]
+position = Vector2(129, 2)
+scale = Vector2(1.5, 1.5)
+
+[node name="pickup_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_area"]
+shape = SubResource("CircleShape2D_qnwya")
+
+[node name="camera" type="Camera2D" parent="."]
+offset = Vector2(0, -50)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.05
+drag_top_margin = 0.05
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
+script = ExtResource("7_5nvnm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="camera"]
+libraries = {
+"": SubResource("AnimationLibrary_0dypa")
+}

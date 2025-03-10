@@ -1,0 +1,189 @@
+[gd_scene load_steps=8 format=3 uid="uid://4l8xh0qsfnyd"]
+
+[ext_resource type="PackedScene" uid="uid://dv44ue00sjabv" path="res://music/sync.tscn" id="1_n2jme"]
+[ext_resource type="Texture2D" uid="uid://ctnkd8ysu15b5" path="res://beatblock/assets/2/1.png" id="2_p876w"]
+[ext_resource type="Texture2D" uid="uid://cwc5by46wpdwo" path="res://beatblock/assets/2/2.png" id="3_24fbx"]
+[ext_resource type="Texture2D" uid="uid://civabxgtnpw1p" path="res://beatblock/assets/2/3.png" id="4_k8mut"]
+
+[sub_resource type="Animation" id="Animation_fxt00"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.15, 0.15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.15, 0.15)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite2:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sprite3:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.15, 0.15)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sprite3:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0pgaq"]
+resource_name = "play"
+length = 12.0
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.8, 1.14, 1.18, 1.89, 3.8, 4.14, 4.18, 6.79, 7.13, 7.17, 7.88, 9.8, 10.14, 10.18),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25), Vector2(0.25, 0.25), Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25), Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25), Vector2(0.25, 0.25), Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.14, 1.18, 1.89, 3.8, 4.14, 4.18, 4.91, 6.79, 7.13, 7.17, 7.88, 9.8, 10.14, 10.18, 10.94),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8, 1.33, 1.37, 2.08, 3.8, 4.33, 4.37, 6.79, 7.32, 7.36, 8.07, 9.8, 10.33, 10.37),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25), Vector2(0.25, 0.25), Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25), Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25), Vector2(0.25, 0.25), Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite2:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8, 1.33, 1.37, 2.08, 3.8, 4.33, 4.37, 5.1, 6.79, 7.32, 7.36, 8.07, 9.8, 10.33, 10.37, 11.13),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sprite3:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8, 1.51, 1.55, 2.26, 3.8, 4.51, 4.55, 6.79, 7.5, 7.54, 8.25, 9.8, 10.51, 10.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25), Vector2(0.25, 0.25), Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25), Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25), Vector2(0.25, 0.25), Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.25, 0.25)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sprite3:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.8, 1.51, 1.55, 2.26, 3.8, 4.51, 4.55, 5.28, 6.79, 7.5, 7.54, 8.25, 9.8, 10.51, 10.55, 11.31),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yfqy8"]
+_data = {
+"RESET": SubResource("Animation_fxt00"),
+"play": SubResource("Animation_0pgaq")
+}
+
+[node name="beatblock_display" instance=ExtResource("1_n2jme")]
+num = 2
+sync_type = 0
+
+[node name="anim" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_yfqy8")
+}
+
+[node name="sprite" type="Sprite2D" parent="." index="1"]
+modulate = Color(0.77926, 0.7708, 0.94, 1)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_p876w")
+
+[node name="sprite2" type="Sprite2D" parent="." index="2"]
+modulate = Color(0.77926, 0.7708, 0.94, 1)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_24fbx")
+
+[node name="sprite3" type="Sprite2D" parent="." index="3"]
+modulate = Color(0.77926, 0.7708, 0.94, 1)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_k8mut")

@@ -4,38 +4,47 @@ extends Node2D
 
 @onready var sync: AudioStreamSynchronized = $synchronized.stream
 
-@onready var bb_test = preload("res://audio/bb3.wav")
-
-@onready var label = $"../Label"
-
 var debug_num = 0
+
+var previous_time = 2
+
+signal sync_animation(time)
+
+
+var currently_playing = [1, 2, 3, 4]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	label.text = "activated sounds: 1"
+	
+	for x in currently_playing:
+		sync.set_sync_stream_volume(x, 0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-func _input(event):
-	if Input.is_action_just_pressed("debug"):
-		if debug_num == 0:
-			sync.set_sync_stream_volume(2, 0)
-			
-			label.text = "activated sounds: 1, 2"
-		elif debug_num == 1:
-			sync.set_sync_stream_volume(3, 0)
-			
-			label.text = "activated sounds: 1, 2, 3"
-		elif debug_num == 2:
-			sync.set_sync_stream_volume(4, 0)
-			
-			label.text = "activated sounds: 1, 2, 3, 4"
-		elif debug_num == 3:
-			sync.set_sync_stream_volume(6, 0)
-			sync.set_sync_stream_volume(2, -60)
-			
-			label.text = "activated sounds: 1, 6, 3, 4"
-			
-		debug_num += 1
+	var time = get_current_time()
+	
+	if previous_time > 1 and time < 0.2:
+		sync_animation.emit(time, 0)
+		
+	if previous_time < 3 and time >= 3:
+		sync_animation.emit(time, 1)
+		
+	if previous_time < 6 and time >= 6:
+		sync_animation.emit(time, 2)
+		
+	if previous_time < 9 and time >= 9:
+		sync_animation.emit(time, 3)
+		
+	previous_time = time
+	
+	
+func get_current_time():
+	var time = $synchronized.get_playback_position() + AudioServer.get_time_since_last_mix()
+	# Compensate for output latency.
+	time -= AudioServer.get_output_latency()
+	return time
+	
+func replace_block(from_num, to_num):
+	sync.set_sync_stream_volume(from_num, -60)
+	sync.set_sync_stream_volume(to_num, 0)

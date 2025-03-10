@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvsgf21oxvvxr"]
+
+[ext_resource type="PackedScene" uid="uid://dv44ue00sjabv" path="res://music/sync.tscn" id="1_iqjgu"]
+[ext_resource type="Texture2D" uid="uid://iu8bso1mvsdm" path="res://beatblock/assets/5/1.png" id="2_itbhs"]
+
+[sub_resource type="Animation" id="Animation_efvoe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("line:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(1, -16, -16, -4)]
+}
+
+[sub_resource type="Animation" id="Animation_ijt15"]
+resource_name = "play"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("line:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1.13333, 1.7, 2.26667, 2.83333, 3, 3.56667, 4.13333, 4.7, 5.26667, 5.93333),
+"transitions": PackedFloat32Array(4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4),
+"update": 0,
+"values": [PackedVector2Array(1, -16, -16, -4), PackedVector2Array(1, -16, 18, -4), PackedVector2Array(11, 15, 18, -4), PackedVector2Array(11, 15, -9, 15), PackedVector2Array(-16, -4, -9, 15), PackedVector2Array(-16, -4, 1, -16), PackedVector2Array(-16, -4, 1, -16), PackedVector2Array(18, -4, 1, -16), PackedVector2Array(18, -4, 11, 15), PackedVector2Array(-9, 15, 11, 15), PackedVector2Array(-9, 15, -16, -4), PackedVector2Array(1, -16, -16, -4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yuafu"]
+_data = {
+"RESET": SubResource("Animation_efvoe"),
+"play": SubResource("Animation_ijt15")
+}
+
+[node name="sync" instance=ExtResource("1_iqjgu")]
+num = 5
+sync_type = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+modulate = Color(0.7708, 0.88078, 0.94, 0.494118)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("2_itbhs")
+
+[node name="line" type="Line2D" parent="." index="1"]
+modulate = Color(0.7708, 0.88078, 0.94, 1)
+position = Vector2(-1, 0)
+points = PackedVector2Array(1, -16, -16, -4)
+width = 5.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="anim" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_yuafu")
+}

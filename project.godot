@@ -31,6 +31,10 @@ movie_writer/mjpeg_quality=0.5
 movie_writer/movie_file="/Users/tongyu/Desktop/test.avi"
 movie_writer/fps=30
 
+[global_group]
+
+beatblock_display=""
+
 [input]
 
 left={
@@ -74,6 +78,8 @@ debug={
 ]
 }
 
-[rendering]
+[layer_names]
 
-environment/defaults/default_clear_color=Color(1, 1, 1, 1)
+2d_physics/layer_1="player movement"
+2d_physics/layer_2="player beatblock pickups"
+2d_physics/layer_3="player environment"

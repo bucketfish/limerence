@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv44ue00sjabv"]
+
+[ext_resource type="Script" path="res://music/sync.gd" id="1_0322m"]
+
+[node name="sync" type="Node2D" groups=["beatblock_display"]]
+script = ExtResource("1_0322m")
